@@ -1,0 +1,2 @@
+class AuPair < ApplicationRecord
+end
