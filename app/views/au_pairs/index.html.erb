@@ -18,6 +18,7 @@
   <div class='card'>
     <div class='card-body'>
       <h5 class='card-title'><%= aupair.name %></h5>
+      <%= image_tag aupair.photo.url(:thumb) %>
       Habilidades: <%= aupair.skills %> <br/>
       Formação: <%= aupair.degree %> <br/>
       Cidade: <%= aupair.city %> <br/>

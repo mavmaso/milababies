@@ -11,5 +11,6 @@ FactoryBot.define do
     birth_date '1993-04-19'
     city 'Londrina'
     rate 10
+    photo File.new(Rails.root.join('spec', 'support', 'nophoto.jpg'))
   end
 end

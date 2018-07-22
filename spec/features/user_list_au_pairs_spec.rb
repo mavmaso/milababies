@@ -14,6 +14,7 @@ feature 'User list aupairs' do
     expect(page).to have_content("Habilidades: #{nanny_1.skills}")
     expect(page).to have_content("Formação: #{nanny_1.degree}")
     expect(page).to have_content("Cidade: #{nanny_1.city}")
+    expect(page).to have_css('img[src*="nophoto.jpg"]')
 
     expect(page).to have_content('Nanny #2')
   end
