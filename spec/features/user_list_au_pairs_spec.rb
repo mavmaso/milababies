@@ -4,14 +4,9 @@ feature 'User list aupairs' do
 
   scenario 'successfully' do
 
-    #au_pair = create(:au_pair)
-
-    #puts(au_pair)
-
-    aupair = AuPair.new
+    aupair = create(:au_pair)
 
     expect(aupair.name).to eq(aupair.name)
   end
-
 
 end
