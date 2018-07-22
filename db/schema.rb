@@ -10,6 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_07_21_012847) do
+
+  create_table "au_pairs", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.string "social_media"
+    t.string "CPF"
+    t.text "skills"
+    t.string "degree"
+    t.string "languages"
+    t.date "birth_date"
+    t.string "city"
+    t.integer "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
