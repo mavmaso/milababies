@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :au_pair do
-    name 'Nani'
-    email 'nani@baba.com'
+    sequence(:name) { |n| "Nanny ##{n}" }
+    email 'nanny@baba.com'
     phone '99988-1234'
-    social_media 'facebook.com/nanibaba'
+    social_media 'facebook.com/nannybaba'
     CPF '54545199011'
     skills 'Brincadeiras educativas'
     degree 'Segundo grau completo'

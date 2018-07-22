@@ -1,0 +1,18 @@
+<h3>Babás</h3>
+
+<% if @aupairs.empty? %>
+  <%= 'Nenhuma babá encontrada' %>
+<% end %>
+
+<% @aupairs.each do |aupair| %>
+  <div class='card'>
+    <div class='card-body'>
+      <h5 class='card-title'><%= aupair.name %></h5>
+      Habilidades: <%= aupair.skills %> <br/>
+      Formação: <%= aupair.degree %> <br/>
+      Cidade: <%= aupair.city %> <br/>
+      Avaliação: <%= aupair.rate %> <br />
+      Depoimentos: 0
+    </div>
+  </div>
+<% end %>
