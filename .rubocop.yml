@@ -5,6 +5,7 @@ Rails:
 Style/FrozenStringLiteralComment:
   Enabled: false
 AllCops:
+  UseCache: false
   TargetRubyVersion: 2.4
   Include:
     - '**/Rakefile'
