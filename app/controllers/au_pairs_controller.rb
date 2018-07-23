@@ -12,10 +12,7 @@ class AuPairsController < ApplicationController
   private
 
     def get_search_query
-      if params[:query].present?
-        return params[:query]
-      end
-      false
+      params[:query]
     end
 
 end
