@@ -3,20 +3,20 @@ require 'rails_helper'
 feature 'User list aupairs' do
 
   scenario 'successfully' do
-    nanny_1 = create(:au_pair)
-    nanny_2 = create(:au_pair)
+    nanny = create(:au_pair, name: 'Nanny')
+    another_nanny = create(:au_pair, name: 'Baba')
 
     visit root_path
     click_on 'Encontre Babás'
 
     expect(page).to have_content('Babás')
-    expect(page).to have_content('Nanny #1')
-    expect(page).to have_content("Habilidades: #{nanny_1.skills}")
-    expect(page).to have_content("Formação: #{nanny_1.degree}")
-    expect(page).to have_content("Cidade: #{nanny_1.city}")
+    expect(page).to have_content(nanny.name)
+    expect(page).to have_content("Habilidades: #{nanny.skills}")
+    expect(page).to have_content("Formação: #{nanny.degree}")
+    expect(page).to have_content("Cidade: #{nanny.city}")
     expect(page).to have_css('img[src*="nophoto.jpg"]')
 
-    expect(page).to have_content('Nanny #2')
+    expect(page).to have_content(another_nanny.name)
   end
 
   scenario 'and has no au_pair' do
@@ -28,27 +28,27 @@ feature 'User list aupairs' do
   end
 
   scenario 'and filter by name' do
-    nanny_3 = create(:au_pair)
-    nanny_4 = create(:au_pair)
+    nanny = create(:au_pair, name: 'Nanny')
+    another_nanny = create(:au_pair, name: 'Baba')
 
     visit root_path
     click_on 'Encontre Babás'
 
-    fill_in 'Buscar por', with: nanny_4.name
+    fill_in 'Buscar por', with: another_nanny.name
     click_on 'Buscar'
 
     expect(page).to have_content('Babás')
-    expect(page).to have_content('Nanny #4')
-    expect(page).to have_content("Habilidades: #{nanny_4.skills}")
-    expect(page).to have_content("Formação: #{nanny_4.degree}")
-    expect(page).to have_content("Cidade: #{nanny_4.city}")
+    expect(page).to have_content(another_nanny.name)
+    expect(page).to have_content("Habilidades: #{another_nanny.skills}")
+    expect(page).to have_content("Formação: #{another_nanny.degree}")
+    expect(page).to have_content("Cidade: #{another_nanny.city}")
 
-    expect(page).not_to have_content('Nanny #3')
+    expect(page).not_to have_content(nanny.name)
   end
 
   scenario 'and filter by firsts chars of name ' do
-    nanny_5 = create(:au_pair)
-    nanny_6 = create(:au_pair)
+    create(:au_pair, name: 'Nanny Primeira')
+    create(:au_pair, name: 'Nanny Segunda')
 
     visit root_path
     click_on 'Encontre Babás'
@@ -56,27 +56,27 @@ feature 'User list aupairs' do
     fill_in 'Buscar por', with: 'Nanny'
     click_on 'Buscar'
 
-    expect(page).to have_content('Nanny #5')
-    expect(page).to have_content('Nanny #6')
+    expect(page).to have_content('Nanny Primeira')
+    expect(page).to have_content('Nanny Segunda')
   end
 
   scenario 'and filter by lasts chars of name' do
-    nanny_7 = create(:au_pair)
-    nanny_8 = create(:au_pair)
+    create(:au_pair, name: 'Nanny Primeira')
+    create(:au_pair, name: 'Nanny Segunda')
 
     visit root_path
     click_on 'Encontre Babás'
 
-    fill_in 'Buscar por', with: 'y #7'
+    fill_in 'Buscar por', with: 'Segunda'
     click_on 'Buscar'
 
-    expect(page).to have_content('Nanny #7')
-    expect(page).not_to have_content('Nanny #8')
+    expect(page).to have_content('Nanny Segunda')
+    expect(page).not_to have_content('Nanny Primeira')
   end
 
   scenario 'and filter by name ignoring case' do
-    nanny_9 = create(:au_pair)
-    nanny_10 = create(:au_pair)
+    create(:au_pair, name: 'Nanny #10')
+    create(:au_pair, name: 'Nanny #9')
 
     visit root_path
     click_on 'Encontre Babás'
@@ -89,8 +89,8 @@ feature 'User list aupairs' do
   end
 
   scenario 'and filter by empty name' do
-    nanny_11 = create(:au_pair)
-    nanny_12 = create(:au_pair)
+    create(:au_pair, name: 'Nanny Primeira')
+    create(:au_pair, name: 'Nanny Segunda')
 
     visit root_path
     click_on 'Encontre Babás'
@@ -98,7 +98,7 @@ feature 'User list aupairs' do
     fill_in 'Buscar por', with: ''
     click_on 'Buscar'
 
-    expect(page).to have_content('Nanny #11')
-    expect(page).to have_content('Nanny #12')
+    expect(page).to have_content('Nanny Primeira')
+    expect(page).to have_content('Nanny Segunda')
   end
 end

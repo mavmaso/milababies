@@ -1,3 +1,5 @@
+
+<section class="pesquisa">
 <div>
   <%= form_tag(au_pairs_path, method: "get") do %>
     <div>
@@ -7,6 +9,9 @@
     </div>
   <% end %>
 </div>
+</section>
+
+
 
 <h3>Babás</h3>
 
@@ -15,15 +20,20 @@
 <% end %>
 
 <% @aupairs.each do |aupair| %>
-  <div class='card'>
-    <div class='card-body'>
-      <h5 class='card-title'><%= aupair.name %></h5>
+  <section class="baba">
+    <h1><%= aupair.name %></h1>
+    <div class="foto">
       <%= image_tag aupair.photo.url(:thumb) %>
-      Habilidades: <%= aupair.skills %> <br/>
-      Formação: <%= aupair.degree %> <br/>
-      Cidade: <%= aupair.city %> <br/>
-      Avaliação: <%= aupair.rate %> <br />
-      Depoimentos: 0
+      <label class="cidade"> Cidade: <%= aupair.city %></label>
     </div>
-  </div>
+    <div class="texto">
+      <ul>
+        <li>Habilidades: <%= aupair.skills %></li>
+        <li>Formação: <%= aupair.degree %></li>
+        <li>Avaliação: <%= aupair.rate %></li>
+        <li>  Depoimentos: 0</li>
+      </ul>
+      <button class="ver_mais">Ver mais</button>
+    </div>
+  </section>
 <% end %>
