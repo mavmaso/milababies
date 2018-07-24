@@ -20,7 +20,7 @@
 <% end %>
 
 <% @aupairs.each do |aupair| %>
-  <section class="baba">
+  <section class="baba" id='aupair-<%= aupair.id %>'> 
     <h1><%= aupair.name %></h1>
     <div class="foto">
       <%= image_tag aupair.photo.url(:thumb) %>
@@ -34,6 +34,7 @@
         <li>  Depoimentos: 0</li>
       </ul>
       <button class="ver_mais">Ver mais</button>
+      <%= link_to 'Fazer Contratação', new_au_pair_proposal_path(aupair) %>
     </div>
   </section>
 <% end %>
