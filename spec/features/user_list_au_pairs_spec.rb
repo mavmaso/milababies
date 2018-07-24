@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'User list aupairs' do
-
   scenario 'successfully' do
     nanny = create(:au_pair, name: 'Nanny')
     another_nanny = create(:au_pair, name: 'Baba')

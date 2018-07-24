@@ -17,7 +17,7 @@ class TestimonialsController < ApplicationController
   private
 
   def testimonial_params
-    params.require(:testimonial).permit(:title, :description)
+    params.require(:testimonial).permit(:title, :description,:rating)
   end
 
   def find_au_pair

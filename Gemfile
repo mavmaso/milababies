@@ -51,6 +51,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.58.1', require: false
+  gem 'poltergeist'
 end
 
 group :development do

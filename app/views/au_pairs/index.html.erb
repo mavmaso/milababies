@@ -33,7 +33,7 @@
         <li>Avaliação: <%= aupair.rate %></li>
         <li>  Depoimentos: 0</li>
       </ul>
-     <button class='ver_mais'><%= link_to 'Ver Mais', au_pair_path(aupair)%></button>
+     <%= button_to 'Ver Mais', au_pair_path(aupair), class: 'aupair-show', method: :get %> 
     </div>
   </section>
 <% end %>

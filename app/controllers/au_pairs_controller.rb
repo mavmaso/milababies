@@ -1,22 +1,37 @@
 class AuPairsController < ApplicationController
-
   def index
-    search_query = get_search_query
-    if search_query
-      @aupairs = AuPair.where('name LIKE ?', "%#{search_query}%")
+    @aupairs = if search_query
+                 AuPair.where('name LIKE ?', "%#{search_query}%")
+               else
+                 AuPair.all
+               end
+  end
+
+  def new
+    @au_pair = AuPair.new
+  end
+
+  def create
+    @au_pair = AuPair.new(au_pair_params)
+    if @au_pair.save
+      redirect_to @au_pair
     else
-      @aupairs = AuPair.all
+      render :new
     end
   end
 
   def show
-    @aupair = AuPair.find(params[:id])
+    @au_pair = AuPair.find(params[:id])
   end
 
   private
 
-    def get_search_query
-      params[:query]
-    end
+  def search_query
+    params[:query]
+  end
 
+  def au_pair_params
+    params.require(:au_pair).permit(:name, :email, :phone, :cpf, :skills,
+                                    :languages, :degree, :birth_date, :city)
+  end
 end
