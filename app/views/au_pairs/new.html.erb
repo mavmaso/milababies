@@ -1,0 +1,13 @@
+<h1>Cadastrar Nova Babá</h1>
+<%= simple_form_for(@au_pair) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :phone %>
+  <%= f.input :cpf %>
+  <%= f.input :skills %>
+  <%= f.input :languages %>
+  <%= f.input :degree %>
+  <%= f.input :birth_date, as: :string %>
+  <%= f.input :city %>
+  <%= f.submit 'Enviar' %>
+<% end %>
