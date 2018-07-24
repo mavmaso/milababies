@@ -4,7 +4,7 @@ FactoryBot.define do
     email 'nanny@baba.com'
     phone '99988-1234'
     social_media 'facebook.com/nannybaba'
-    CPF '54545199011'
+    cpf '54545199011'
     skills 'Brincadeiras educativas'
     degree 'Segundo grau completo'
     languages 'Portugues, Ingles'

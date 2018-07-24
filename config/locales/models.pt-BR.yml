@@ -1,0 +1,15 @@
+pt-BR:
+  activerecord:
+    models:
+      au_pair: Babá
+    attributes:
+      au_pair:
+        name: Nome
+        email: Email
+        phone: Telefone
+        cpf: CPF
+        skills: Habilidades
+        languages: Idiomas
+        degree: Formação
+        birth_date: Data de Nascimento
+        city: Cidade

@@ -1,0 +1,13 @@
+<h1><%= @au_pair.name %></h1>
+<em><%= @au_pair.email %></em>
+<h2>Informações</h2>
+<dl>
+  <dt><%= t('activerecord.attributes.au_pair.phone') %></dt>
+  <dd><%= @au_pair.phone %></dd>
+  <dt><%= t('activerecord.attributes.au_pair.degree') %></dt>
+  <dd><%= @au_pair.degree %></dd>
+  <dt><%= t('activerecord.attributes.au_pair.skills') %></dt>
+  <dd><%= @au_pair.skills %></dd>
+  <dt><%= t('activerecord.attributes.au_pair.birth_date') %></dt>
+  <dd><%= I18n.l @au_pair.birth_date %></dd>
+</dl>
