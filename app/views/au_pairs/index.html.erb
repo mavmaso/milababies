@@ -1,4 +1,4 @@
-
+<div class="container">
 <section class="pesquisa">
 <div>
   <%= form_tag(au_pairs_path, method: "get") do %>
@@ -33,7 +33,8 @@
         <li>Avaliação: <%= aupair.rate %></li>
         <li>  Depoimentos: 0</li>
       </ul>
-      <button class="ver_mais">Ver mais</button>
+     <button class='ver_mais'><%= link_to 'Ver Mais', au_pair_path(aupair)%></button>
     </div>
   </section>
 <% end %>
+</div>

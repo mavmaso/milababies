@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_22_174046) do
+ActiveRecord::Schema.define(version: 2018_07_24_003147) do
 
   create_table "au_pairs", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2018_07_22_174046) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "testimonials", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "au_pair_id"
+    t.index ["au_pair_id"], name: "index_testimonials_on_au_pair_id"
   end
 
 end

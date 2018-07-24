@@ -1,0 +1,13 @@
+<% @testimonial.errors.full_messages.each do |msg| %>
+   <%= msg %>
+<% end %>
+<br>
+<h1 align="center">Enviar depoimento</h1>
+<hr>
+<div class="container">
+  <%= simple_form_for @testimonial, url: au_pair_testimonials_path do |f| %>
+    <%= f.input :title, label: 'Título' %>
+    <%= f.input :description, label: 'Descrição' %>
+    <%= f.submit 'Salvar' %>
+  <% end %>
+</div>

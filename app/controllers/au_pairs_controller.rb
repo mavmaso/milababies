@@ -9,6 +9,10 @@ class AuPairsController < ApplicationController
     end
   end
 
+  def show
+    @aupair = AuPair.find(params[:id])
+  end
+
   private
 
     def get_search_query

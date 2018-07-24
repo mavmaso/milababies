@@ -1,0 +1,31 @@
+<div class="container">
+ <section class="baba-show">
+    <h1><%= @aupair.name %></h1>
+    <div></div>
+    <div class="foto">
+      <%= image_tag @aupair.photo.url(:thumb) %>
+      <label class="cidade"> Cidade: <%= @aupair.city %></label>
+    </div>
+    <div class="texto">
+      <ul>
+        <li>Habilidades: <%= @aupair.skills %></li>
+        <li>Formação: <%= @aupair.degree %></li>
+        <li>Avaliação: <%= @aupair.rate %></li>
+        <li><% if  @aupair.testimonials.count == 0 %>
+                Nenhum depoimento
+                  <%else%>
+                  Depoimentos:<%=  @aupair.testimonials.count%>
+                    <% end %>
+        </li>
+      </ul>
+      <%=link_to 'Criar depoimento', new_au_pair_testimonial_path(@aupair) %>
+    </div>
+
+    <div>
+      <h5>Depoimentos</h5>
+      <% @aupair.testimonials.each do |testimonial| %>
+        <p><%= testimonial.title %></p>        
+      <% end %>
+    </div>
+  </section>
+  </div>
