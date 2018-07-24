@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      proposal: 
+        one: Proposta
+        other: Propostas
+    attributes:
+      proposal:
+         booked_date: Data
+         start_hour: Hora de Início
+         end_hour: Hora de Término
+         final_price: Preço Final
+         message: Messagem
