@@ -4,10 +4,8 @@ class Proposal < ApplicationRecord
   validates :booked_date, :start_hour, :end_hour, presence: true
 
   private
-  
+
   def calculate_final_price
-    self.final_price = au_pair.wage * (((end_hour - start_hour)/60)/60).to_i
+    self.final_price = au_pair.wage * (((end_hour - start_hour) / 60) / 60).to_i
   end
-
 end
-
