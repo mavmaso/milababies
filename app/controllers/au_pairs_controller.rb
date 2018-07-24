@@ -7,8 +7,6 @@ class AuPairsController < ApplicationController
                end
   end
 
-
-
   def new
     @au_pair = AuPair.new
   end
