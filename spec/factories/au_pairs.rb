@@ -1,10 +1,10 @@
 FactoryBot.define do
   factory :au_pair do
     sequence(:name) { |n| "Nanny ##{n}" }
+    sequence(:cpf) { |n| n.to_s * 11 }
     email 'nanny@baba.com'
     phone '99988-1234'
     social_media 'facebook.com/nannybaba'
-    cpf '54545199011'
     skills 'Brincadeiras educativas'
     degree 'Segundo grau completo'
     languages 'Portugues, Ingles'
