@@ -4,14 +4,20 @@
     <div></div>
     <div class="foto">
       <%= image_tag @au_pair.photo.url(:thumb) %>
-      <label class="cidade"> Cidade: <%= @au_pair.city %></label>
+      <label class="cidade"> <%= "#{AuPair.human_attribute_name(:city)} #{@au_pair.city}" %></label>
     </div>
     <div class="texto">
       <ul>
-        <li><%= t('activerecord.attributes.au_pair.birth_date') %> <%= I18n.l @au_pair.birth_date %></li>
-        <li><%= "#{t('activerecord.attributes.au_pair.skills')} #{@au_pair.skills}" %></li>
-        <li><%= "#{t('activerecord.attributes.au_pair.degree')} #{@au_pair.degree}" %></li>
+        <li><%= "#{AuPair.human_attribute_name(:birth_date)} #{I18n.l(@au_pair.birth_date)}" %></li>
+        <li><%= "#{AuPair.human_attribute_name(:skills)} #{@au_pair.skills}" %></li>
+        <li><%= "#{AuPair.human_attribute_name(:degree)} #{@au_pair.degree}" %></li>
+        <li><%= "#{AuPair.human_attribute_name(:wage)} #{number_to_currency(@au_pair.wage)}" %></li>
         <li class="rating" data-score=<%=@au_pair.average_rating%>>Avaliação: <%= @au_pair.average_rating %></li>
+      </ul>
+      <div>Contatos</h5>
+      <ul>
+        <li><%= "#{AuPair.human_attribute_name(:phone)} #{@au_pair.phone}" %></li>
+        <li><%= "#{AuPair.human_attribute_name(:email)} #{@au_pair.email}" %></li>
       </ul>
        <%= link_to 'Fazer Contratação', new_au_pair_proposal_path(@au_pair) %>
       <%=link_to 'Criar depoimento', new_au_pair_testimonial_path(@au_pair) %>
