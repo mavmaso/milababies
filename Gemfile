@@ -28,12 +28,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap', '~> 4.1.1'
-
+gem 'devise'
 gem 'paperclip', '~> 6.0.0'
 
 gem 'jquery-rails'
 gem 'simple_form'
-gem 'devise'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
