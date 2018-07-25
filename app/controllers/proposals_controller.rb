@@ -1,14 +1,13 @@
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show]
+  before_action :find_au_pair, only: [:new, :create]
 
   def new
-    @proposal = Proposal.new
-    @proposal.au_pair = AuPair.find(params[:au_pair_id])
+    @proposal = @au_pair.proposals.build
   end
 
   def create
-    au_pair = AuPair.find(params[:au_pair_id])
-    @proposal = au_pair.proposals.new(proposal_params)
+    @proposal = @au_pair.proposals.build(proposal_params)
     if @proposal.save
       redirect_to [@proposal.au_pair, @proposal],
                   notice: 'Proposta enviada com sucesso'
@@ -29,5 +28,9 @@ class ProposalsController < ApplicationController
 
   def set_proposal
     @proposal = Proposal.find(params[:id])
+  end
+
+  def find_au_pair
+    @au_pair = AuPair.find(params[:au_pair_id])
   end
 end
