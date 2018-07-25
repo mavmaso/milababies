@@ -15,7 +15,9 @@
   </head>
 
   <body>
+    <%= render partial: 'shared/navigation'  %>
+     <%= flash[:alert] %>
+      <%= yield %> 
     
-      <%= yield %>
   </body>
 </html>

@@ -7,21 +7,21 @@ class TestimonialsController < ApplicationController
 
   def create
     @testimonial = @au_pair.testimonials.build(testimonial_params)
-   if @testimonial.save
-    redirect_to au_pair_path(@au_pair)
-   else
-    render :new
-   end
+    if @testimonial.save
+      redirect_to au_pair_path(@au_pair)
+    else
+      flash[:alert] = 'Você deve preencher todos os campos'
+      render :new
+    end
   end
 
   private
 
   def testimonial_params
-    params.require(:testimonial).permit(:title, :description,:rating)
+    params.require(:testimonial).permit(:title, :description, :rating)
   end
 
   def find_au_pair
     @au_pair = AuPair.find(params[:au_pair_id])
   end
-
 end

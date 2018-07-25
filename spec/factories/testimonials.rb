@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :testimonial do
-    title "MyString"
-    description "MyText"
+    title 'MyString'
+    description 'MyText'
     rating 1
   end
 end
