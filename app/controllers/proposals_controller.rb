@@ -1,6 +1,6 @@
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show]
-  before_action :find_au_pair, only: [:new, :create]
+  before_action :find_au_pair, only: %i[new create]
 
   def new
     @proposal = @au_pair.proposals.build
