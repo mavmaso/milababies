@@ -30,6 +30,19 @@ ActiveRecord::Schema.define(version: 2018_07_24_010254) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
+    t.decimal "wage"
+  end
+
+  create_table "proposals", force: :cascade do |t|
+    t.date "booked_date"
+    t.time "start_hour"
+    t.time "end_hour"
+    t.text "message"
+    t.integer "au_pair_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "final_price"
+    t.index ["au_pair_id"], name: "index_proposals_on_au_pair_id"
   end
 
 end
