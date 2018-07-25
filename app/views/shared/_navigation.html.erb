@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <a class="navbar-brand" href="<%= root_path %>"><%= image_tag("baby.png",class:"img-fluid rounded-circle",style:"height:2em;") %></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto lista">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Quem Somos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Entrar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= au_pairs_path %>">Encontre Babás</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_au_pair_path %>">Cadastrar Babá</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="#">Trabalhe conosco</a>
+        </li>
+      </ul>
+    </div>
+</nav>

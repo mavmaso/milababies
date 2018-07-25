@@ -1,4 +1,4 @@
-
+<div class="container">
 <section class="pesquisa">
 <div>
   <%= form_tag(au_pairs_path, method: "get") do %>
@@ -20,7 +20,7 @@
 <% end %>
 
 <% @aupairs.each do |aupair| %>
-  <section class="baba" id='aupair-<%= aupair.id %>'> 
+  <section class="baba">
     <h1><%= aupair.name %></h1>
     <div class="foto">
       <%= image_tag aupair.photo.url(:thumb) %>
@@ -33,8 +33,10 @@
         <li>Avaliação: <%= aupair.rate %></li>
         <li>  Depoimentos: 0</li>
       </ul>
-      <button class="ver_mais">Ver mais</button>
-      <%= link_to 'Fazer Contratação', new_au_pair_proposal_path(aupair) %>
+      <div id="aupair-<%= aupair.id%>">
+       <%= button_to 'Ver Mais', au_pair_path(aupair), class: 'aupair-show', method: :get %> 
+      </div>
     </div>
   </section>
 <% end %>
+</div>

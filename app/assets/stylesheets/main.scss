@@ -58,7 +58,7 @@ header.masthead {
   background-image: asset-url('home.jpg');
   background-repeat: no-repeat;
   background-position: center center;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-size: cover;
 }
 
@@ -158,21 +158,33 @@ header.masthead .masthead-content .masthead-subheading {
   font-size: 22px;
 }
 
-.ver_mais{
- width: 200px;
+.aupair-show{
+ width: 300px;
  height: 50px;
  border-radius: 20px;
  margin-top: 70px;
  margin-left: 40px;
  color: white;
  background: #bd0760;
- text-transform: uppercase;
+ 
 }
-
-.ver_mais:hover{
-  background: palevioletred;
+.aupair-show a{
+  text-decoration: none;
   color: white;
-}
+  
+ }
+
 .cidade{
   font-size: 30px;
+}
+.baba-show{
+  margin-top: 50px;
+  border: 7px solid #bd0760;
+  height: 800px;
+  
+
+}
+
+.container{
+  margin-top: 120px;
 }
