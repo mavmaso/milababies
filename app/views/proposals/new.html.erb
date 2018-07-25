@@ -1,0 +1,8 @@
+<h1>Fazer Contratação</h1>
+<%= simple_form_for @proposal, url: [@proposal.au_pair, @proposal] do |f| %>
+  <%= f.input :booked_date, label: 'Data', as: :date, html5: true %>
+  <%= f.input :start_hour, label: 'Hora de Início', as: :time, html5: true  %>
+  <%= f.input :end_hour, label: 'Hora de Término', as: :time, html5: true  %>
+  <%= f.input :message, label: 'Messagem' %> 
+  <%= f.button :submit, 'Enviar' %>
+<% end %>

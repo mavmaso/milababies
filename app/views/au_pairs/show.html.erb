@@ -13,6 +13,7 @@
         <li><%= "#{t('activerecord.attributes.au_pair.degree')} #{@au_pair.degree}" %></li>
         <li class="rating" data-score=<%=@au_pair.average_rating%>>Avaliação: <%= @au_pair.average_rating %></li>
       </ul>
+       <%= link_to 'Fazer Contratação', new_au_pair_proposal_path(@au_pair) %>
       <%=link_to 'Criar depoimento', new_au_pair_testimonial_path(@au_pair) %>
     </div>
 

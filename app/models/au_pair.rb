@@ -1,5 +1,6 @@
 class AuPair < ApplicationRecord
   has_many :testimonials, dependent: :destroy
+  has_many :proposals, dependent: :destroy
   validates :name, :email, :phone, :cpf, :skills, :languages, :degree,
             :birth_date, :city, presence: true
   validates :cpf, uniqueness: true

@@ -16,8 +16,8 @@
 
   <body>
     <%= render partial: 'shared/navigation'  %>
-     <%= flash[:alert] %>
-      <%= yield %> 
-    
+    <%= notice %>
+    <%= alert %>
+    <%= yield %>
   </body>
 </html>
