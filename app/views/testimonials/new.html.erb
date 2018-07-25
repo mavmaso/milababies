@@ -1,0 +1,26 @@
+<div class="container">
+<% @testimonial.errors.full_messages.each do |msg| %>
+   <%= msg %>
+<% end %>
+<br>
+<h1 align="center">Enviar depoimento</h1>
+<hr>
+
+  <%= simple_form_for @testimonial, url: au_pair_testimonials_path do |f| %>
+    
+    <%= f.input :title, label: 'Título' %>
+    <div id="rating-form">
+      <label>Nota: </label>
+    </div>
+    <%= f.input :description, label: 'Descrição' %>
+    <%= f.submit 'Salvar' %>
+  <% end %>
+</div>
+
+
+<script>
+  $('#rating-form').raty({
+    path: '/assets/',
+    scoreName: 'testimonial[rating]'
+  });
+</script>

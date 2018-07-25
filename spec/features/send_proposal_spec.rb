@@ -8,7 +8,7 @@ feature 'Send proposal' do
     visit root_path
     click_on 'Encontre Babás'
     within "#aupair-#{nanny1.id}" do
-      click_on 'Ver mais'
+      click_on 'Ver Mais'
     end
     click_on 'Fazer Contratação'
     fill_in 'Data', with: '01/01/2018'
@@ -32,7 +32,7 @@ feature 'Send proposal' do
     visit root_path
     click_on 'Encontre Babás'
     within "#aupair-#{nanny1.id}" do
-      click_on 'Ver mais'
+      click_on 'Ver Mais'
     end
     click_on 'Fazer Contratação'
     fill_in 'Data', with: ' '

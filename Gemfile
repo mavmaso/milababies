@@ -49,6 +49,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'poltergeist'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.58.1', require: false
 end

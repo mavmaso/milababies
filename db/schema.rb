@@ -45,4 +45,14 @@ ActiveRecord::Schema.define(version: 2018_07_24_010254) do
     t.index ["au_pair_id"], name: "index_proposals_on_au_pair_id"
   end
 
+  create_table "testimonials", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "au_pair_id"
+    t.index ["au_pair_id"], name: "index_testimonials_on_au_pair_id"
+  end
+
 end
