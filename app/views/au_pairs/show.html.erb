@@ -1,3 +1,4 @@
+<img src=<%= @au_pair.photo %> />
 <h1><%= @au_pair.name %></h1>
 <em><%= @au_pair.email %></em>
 <h2>Informações</h2>
@@ -10,4 +11,6 @@
   <dd><%= @au_pair.skills %></dd>
   <dt><%= t('activerecord.attributes.au_pair.birth_date') %></dt>
   <dd><%= I18n.l @au_pair.birth_date %></dd>
+  <dt><%= t('activerecord.attributes.au_pair.wage') %></dt>
+  <dd><%= number_to_currency @au_pair.wage %></dd>
 </dl>

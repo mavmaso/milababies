@@ -32,6 +32,7 @@ class AuPairsController < ApplicationController
 
   def au_pair_params
     params.require(:au_pair).permit(:name, :email, :phone, :cpf, :skills,
-                                    :languages, :degree, :birth_date, :city)
+                                    :languages, :degree, :birth_date, :city,
+                                    :wage, :photo)
   end
 end
