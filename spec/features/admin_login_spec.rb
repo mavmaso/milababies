@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Login as Admin' do
   scenario 'successfully' do
     # criar
-    create(:admin)
+    create(:admin, name: 'Camila', email: 'camila@mail.com', password: '123456')
     # navegar
     visit new_admin_session_path
     fill_in 'Email', with: 'camila@mail.com'
@@ -15,7 +15,7 @@ feature 'Login as Admin' do
   end
   scenario 'Log off' do
     # criar
-    create(:admin)
+    create(:admin, name: 'Camila', email: 'camila@mail.com', password: '123456')
     # navegar
     visit new_admin_session_path
     fill_in 'Email', with: 'camila@mail.com'
