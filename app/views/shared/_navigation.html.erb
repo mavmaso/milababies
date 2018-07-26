@@ -8,27 +8,35 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Quem Somos</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Entrar</a>
-        </li>
+        <% if not user_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= new_user_session_path %>">Entrar</a>
+          </li>
+        <% end %>
         <li class="nav-item">
           <a class="nav-link" href="<%= au_pairs_path %>">Encontre Babás</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<%= new_au_pair_path %>">Cadastrar Babá</a>
         </li>
-         <li class="nav-item">
-          <a class="nav-link" href="#">Trabalhe conosco</a>
-        </li>
-        <%if admin_signed_in?%>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="#">Admin: <%= current_admin.name %></a>
-        </li>
-        </li>
-         <li class="nav-item">
-          <%= link_to 'Sair', destroy_admin_session_path, method: :delete, class: 'nav-link'  %>
-        </li>
+        <% if admin_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Admin: <%= current_admin.name %></a>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sair', destroy_admin_session_path, method: :get, class: 'nav-link'  %>
+          </li>
+        <% elsif user_signed_in? %>
+          <li class="nav-item">
+            Usuário: <%= current_user.email %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sair', destroy_user_session_path, method: :get, class: 'nav-link' %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Trabalhe conosco</a>
+          </li>
         <% end %>
       </ul>
     </div>
