@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_25_133717) do
+ActiveRecord::Schema.define(version: 2018_07_26_005156) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2018_07_25_133717) do
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
     t.decimal "wage"
+    t.integer "status"
   end
 
   create_table "proposals", force: :cascade do |t|
