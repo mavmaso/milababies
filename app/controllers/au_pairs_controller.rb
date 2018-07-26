@@ -1,9 +1,9 @@
 class AuPairsController < ApplicationController
   def index
     @aupairs = if search_query
-                 AuPair.where('name LIKE ?', "%#{search_query}%")
+                 AuPair.only_approved.where('name LIKE ?', "%#{search_query}%")
                else
-                 AuPair.all
+                 AuPair.only_approved
                end
   end
 
@@ -12,7 +12,7 @@ class AuPairsController < ApplicationController
   end
 
   def create
-    @au_pair = AuPair.new(au_pair_params)
+    @au_pair = AuPair.new(au_pair_params.merge(build_status))
     if @au_pair.save
       redirect_to @au_pair
     else
@@ -32,6 +32,11 @@ class AuPairsController < ApplicationController
 
   def au_pair_params
     params.require(:au_pair).permit(:name, :email, :phone, :cpf, :skills,
-                                    :languages, :degree, :birth_date, :city)
+                                    :languages, :degree, :birth_date, :city,
+                                    :wage, :photo)
+  end
+
+  def build_status
+    admin_signed_in? ? { status: :approved } : { status: :pending }
   end
 end

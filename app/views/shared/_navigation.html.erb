@@ -18,8 +18,18 @@
           <a class="nav-link" href="<%= new_au_pair_path %>">Cadastrar Babá</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="#">Trabalhe conosco</a>
+          <a class="nav-link" href="<%= new_au_pair_path %>">Trabalhe conosco</a>
         </li>
+        <%if admin_signed_in?%>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="#">Admin: <%= current_admin.name %></a>
+        </li>
+        </li>
+         <li class="nav-item">
+          <%= link_to 'Sair', destroy_admin_session_path, method: :delete, class: 'nav-link'  %>
+        </li>
+        <% end %>
       </ul>
     </div>
 </nav>

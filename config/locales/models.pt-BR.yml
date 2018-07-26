@@ -13,3 +13,8 @@ pt-BR:
         degree: Formação
         birth_date: Data de Nascimento
         city: Cidade
+        wage: Valor/hora
+        photo: Foto
+      au_pair/status:
+        pending: Pendente
+        approved: Aprovado

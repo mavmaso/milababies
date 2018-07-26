@@ -11,11 +11,13 @@ feature 'Send proposal' do
       click_on 'Ver Mais'
     end
     click_on 'Fazer Contratação'
+
     fill_in 'Data', with: '01/01/2018'
     fill_in 'Hora de Início', with: '13:00'
     fill_in 'Hora de Término', with: '16:00'
     fill_in 'Messagem', with: 'Apenas para testar o serviço'
     click_on 'Enviar'
+
     # expectativa
     expect(page).to have_content('Proposta enviada com sucesso')
     expect(page).to have_content("Contrada: #{nanny1.name}")
@@ -25,6 +27,7 @@ feature 'Send proposal' do
     expect(page).to have_content('Messagem: Apenas para testar o serviço')
     expect(page).to have_content('Preço Final: R$ 120,00')
   end
+
   scenario 'fail' do
     # cria
     nanny1 = create(:au_pair, name: 'Nana', wage: 40)
