@@ -13,5 +13,6 @@ FactoryBot.define do
     wage 40
     rate 10
     photo File.new(Rails.root.join('spec', 'support', 'nophoto.jpg'))
+    status :approved
   end
 end

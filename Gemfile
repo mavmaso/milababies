@@ -56,6 +56,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.58.1', require: false
+  # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
 

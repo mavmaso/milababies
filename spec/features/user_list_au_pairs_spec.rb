@@ -100,4 +100,29 @@ feature 'User list aupairs' do
     expect(page).to have_content('Nanny Primeira')
     expect(page).to have_content('Nanny Segunda')
   end
+
+  scenario 'and see only approved au pairs' do
+    create(:au_pair, name: 'Nanny Primeira', status: :pending)
+    create(:au_pair, name: 'Nanny Segunda', status: :approved)
+
+    visit root_path
+    click_on 'Encontre Babás'
+
+    expect(page).to_not have_content('Nanny Primeira')
+    expect(page).to have_content('Nanny Segunda')
+  end
+
+  scenario 'and see only approved au pairs with filter' do
+    create(:au_pair, name: 'Nanny Primeira', status: :approved)
+    create(:au_pair, name: 'Nanny Segunda', status: :pending)
+
+    visit root_path
+    click_on 'Encontre Babás'
+
+    fill_in 'Buscar por', with: 'Nanny'
+    click_on 'Buscar'
+
+    expect(page).to have_content('Nanny Primeira')
+    expect(page).to_not have_content('Nanny Segunda')
+  end
 end

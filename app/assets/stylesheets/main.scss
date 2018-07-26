@@ -122,10 +122,16 @@ header.masthead .masthead-content .masthead-subheading {
   box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
 }
 
+.find-box {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #bd0760;
+  padding: 10px;
+}
 .baba{
   margin-top: 10px;
-  border: 7px solid #bd0760;
-  height: 400px;;
+  border: 2px solid #bd0760;
+  height: 400px;
+  border-radius: 10px;
 
 }
 .baba h1{
@@ -133,7 +139,7 @@ header.masthead .masthead-content .masthead-subheading {
 }
 
 .foto{
- 
+
   width: 300px;
   margin-left: 40px;
   height: 200px;
@@ -166,12 +172,12 @@ header.masthead .masthead-content .masthead-subheading {
  margin-left: 40px;
  color: white;
  background: #bd0760;
- 
+
 }
 .aupair-show a{
   text-decoration: none;
   color: white;
-  
+
  }
 
 .cidade{
@@ -181,7 +187,7 @@ header.masthead .masthead-content .masthead-subheading {
   margin-top: 50px;
   border: 7px solid #bd0760;
   height: 800px;
-  
+
 
 }
 
