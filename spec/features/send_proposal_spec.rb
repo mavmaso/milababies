@@ -22,6 +22,7 @@ feature 'Send proposal' do
     fill_in 'Hora de Término', with: '16:00'
     fill_in 'Messagem', with: 'Apenas para testar o serviço'
     click_on 'Enviar'
+
     # expectativa
     expect(page).to have_content('Proposta enviada com sucesso')
     expect(page).to have_content("Contrada: #{nanny1.name}")
@@ -30,6 +31,8 @@ feature 'Send proposal' do
     expect(page).to have_content('Hora de Término: 16:00')
     expect(page).to have_content('Messagem: Apenas para testar o serviço')
     expect(page).to have_content('Preço Final: R$ 120,00')
+    proposal = Proposal.last
+    expect(proposal.user.email).to eq florinda.email
   end
 
   scenario 'with blank fields' do

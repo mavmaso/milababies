@@ -23,8 +23,9 @@ class ProposalsController < ApplicationController
   private
 
   def proposal_params
-    params.require(:proposal).permit(:booked_date,
-                                     :start_hour, :end_hour, :message)
+    params.require(:proposal)
+          .permit(:booked_date, :start_hour, :end_hour, :message)
+          .merge(user: current_user)
   end
 
   def set_proposal

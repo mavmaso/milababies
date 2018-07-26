@@ -1,5 +1,6 @@
 class Proposal < ApplicationRecord
   belongs_to :au_pair
+  belongs_to :user
   before_save :calculate_final_price
   validates :booked_date, :start_hour, :end_hour, presence: true
 
