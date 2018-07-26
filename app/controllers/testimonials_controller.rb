@@ -20,6 +20,7 @@ class TestimonialsController < ApplicationController
 
   def testimonial_params
     params.require(:testimonial).permit(:title, :description, :rating)
+          .merge(user: current_user)
   end
 
   def find_au_pair

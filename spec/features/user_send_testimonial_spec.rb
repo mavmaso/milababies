@@ -19,6 +19,8 @@ feature 'User send testimonial' do
     click_on 'Salvar'
 
     expect(page).to have_content('Muito Bom')
+    testimonial = Testimonial.last
+    expect(testimonial.user.email).to eq florinda.email
   end
 
   scenario 'and leaves blanks fields' do
