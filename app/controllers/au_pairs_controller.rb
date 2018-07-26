@@ -1,7 +1,10 @@
 class AuPairsController < ApplicationController
   def index
     @aupairs = if search_query
-                 AuPair.where('name LIKE ?', "%#{search_query}%")
+                 AuPair.where(['name LIKE :query OR skills LIKE :query OR ' \
+                               'degree LIKE :query OR city LIKE :query OR ' \
+                               'languages LIKE :query',
+                               query: "%#{search_query}%"])
                else
                  AuPair.all
                end
