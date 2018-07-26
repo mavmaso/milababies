@@ -19,7 +19,7 @@
         <li><%= "#{AuPair.human_attribute_name(:phone)} #{@au_pair.phone}" %></li>
         <li><%= "#{AuPair.human_attribute_name(:email)} #{@au_pair.email}" %></li>
       </ul>
-       <%= link_to 'Fazer Contratação', new_au_pair_proposal_path(@au_pair) %>
+      <%= link_to 'Fazer Contratação', new_au_pair_proposal_path(@au_pair) %>
       <%=link_to 'Criar depoimento', new_au_pair_testimonial_path(@au_pair) %>
     </div>
 

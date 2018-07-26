@@ -1,5 +1,6 @@
 class ProposalsController < ApplicationController
-  before_action :set_proposal, only: [:show]
+  before_action :authenticate_user!, only: %i[new]
+  before_action :set_proposal, only: %i[show]
   before_action :find_au_pair, only: %i[new create]
 
   def new
