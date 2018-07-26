@@ -101,6 +101,34 @@ feature 'User list aupairs' do
     expect(page).to have_content('Nanny Segunda')
   end
 
+  scenario 'and see only approved au pairs' do
+    create(:au_pair, name: 'Nanny Primeira', status: :pending)
+    create(:au_pair, name: 'Nanny Segunda', status: :approved)
+
+    visit root_path
+    click_on 'Encontre Babás'
+
+    fill_in 'Buscar por', with: ''
+    click_on 'Buscar'
+
+    expect(page).to_not have_content('Nanny Primeira')
+    expect(page).to have_content('Nanny Segunda')
+  end
+
+  scenario 'and see only approved au pairs with filter' do
+    create(:au_pair, name: 'Nanny Primeira', status: :approved)
+    create(:au_pair, name: 'Nanny Segunda', status: :pending)
+
+    visit root_path
+    click_on 'Encontre Babás'
+
+    fill_in 'Buscar por', with: 'Nanny'
+    click_on 'Buscar'
+
+    expect(page).to have_content('Nanny Primeira')
+    expect(page).to_not have_content('Nanny Segunda')
+  end
+
   scenario 'and filter by skills' do
     create(:au_pair, name: 'Nanny Primeira', skills: 'anti depressiva')
     create(:au_pair, name: 'Nanny Segunda', skills: 'contadora de estórias')
@@ -132,7 +160,6 @@ feature 'User list aupairs' do
   scenario 'and filter by city' do
     create(:au_pair, name: 'Nanny Primeira', city: 'Rio de Janeiro')
     create(:au_pair, name: 'Nanny Segunda', city: 'São Paulo')
-
     visit root_path
     click_on 'Encontre Babás'
 

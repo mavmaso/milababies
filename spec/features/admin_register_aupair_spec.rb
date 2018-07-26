@@ -2,9 +2,15 @@ require 'rails_helper'
 
 feature 'Admin register AuPair' do
   scenario 'successfully' do
+    camila_admin = create(:admin)
+
+    visit new_admin_session_path
+    fill_in 'Email', with: camila_admin.email
+    fill_in 'Senha', with: camila_admin.password
+    click_on 'Logar'
+
     visit root_path
     click_on 'Cadastrar Babá'
-
     fill_in 'Nome', with: 'Super Nanny'
     fill_in 'Email', with: 'nany@milababies.com'
     fill_in 'Telefone', with: '(11) 1234-5678'
@@ -26,9 +32,19 @@ feature 'Admin register AuPair' do
     expect(page).to have_css('li', text: 'R$ 40,00')
     expect(page).to have_css('img[src*="nophoto.jpg"]')
     expect(current_path).to eq au_pair_path(au_pair.id)
+    expect(page).to have_css('h2', text: 'Status Aprovado')
+    expect(page).to have_link('Fazer Contratação')
+    expect(page).to have_link('Criar depoimento')
   end
 
   scenario 'and must fill in all fields' do
+    camila_admin = create(:admin)
+
+    visit new_admin_session_path
+    fill_in 'Email', with: camila_admin.email
+    fill_in 'Senha', with: camila_admin.password
+    click_on 'Logar'
+
     visit root_path
     click_on 'Cadastrar Babá'
 
@@ -46,6 +62,12 @@ feature 'Admin register AuPair' do
 
   scenario 'and cannot register with duplicate CPF' do
     create(:au_pair, cpf: '12345678900')
+    camila_admin = create(:admin)
+
+    visit new_admin_session_path
+    fill_in 'Email', with: camila_admin.email
+    fill_in 'Senha', with: camila_admin.password
+    click_on 'Logar'
 
     visit root_path
     click_on 'Cadastrar Babá'

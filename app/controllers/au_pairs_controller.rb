@@ -8,7 +8,7 @@ class AuPairsController < ApplicationController
   end
 
   def create
-    @au_pair = AuPair.new(au_pair_params)
+    @au_pair = AuPair.new(au_pair_params.merge(build_status))
     if @au_pair.save
       redirect_to @au_pair
     else
@@ -30,5 +30,9 @@ class AuPairsController < ApplicationController
     params.require(:au_pair).permit(:name, :email, :phone, :cpf, :skills,
                                     :languages, :degree, :birth_date, :city,
                                     :wage, :photo)
+  end
+
+  def build_status
+    admin_signed_in? ? { status: :approved } : { status: :pending }
   end
 end

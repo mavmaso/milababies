@@ -15,3 +15,6 @@ pt-BR:
         city: Cidade
         wage: Valor/hora
         photo: Foto
+      au_pair/status:
+        pending: Pendente
+        approved: Aprovado

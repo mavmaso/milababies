@@ -1,5 +1,6 @@
 class ProposalsController < ApplicationController
-  before_action :set_proposal, only: [:show]
+  before_action :authenticate_user!, only: %i[new]
+  before_action :set_proposal, only: %i[show]
   before_action :find_au_pair, only: %i[new create]
 
   def new
@@ -22,8 +23,9 @@ class ProposalsController < ApplicationController
   private
 
   def proposal_params
-    params.require(:proposal).permit(:booked_date,
-                                     :start_hour, :end_hour, :message)
+    params.require(:proposal)
+          .permit(:booked_date, :start_hour, :end_hour, :message)
+          .merge(user: current_user)
   end
 
   def set_proposal

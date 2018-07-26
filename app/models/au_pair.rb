@@ -8,6 +8,10 @@ class AuPair < ApplicationRecord
   validates_attachment_content_type :photo, content_type: %r{\Aimage\/.*\z}
   validates :photo, attachment_presence: true
 
+  enum status: %i[pending approved]
+
+  scope :only_approved, -> { where(status: :approved) }
+
   def average_rating
     testimonials.average(:rating)&.round(2)
   end

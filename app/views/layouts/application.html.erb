@@ -15,9 +15,11 @@
   </head>
 
   <body>
-    <%= render partial: 'shared/navigation'  %>
-    <%= notice %>
-    <%= alert %>
-    <%= yield %>
+    <div class="container">
+      <%= render partial: 'shared/navigation'  %>
+      <%= notice %>
+      <%= alert %>
+      <%= yield %>
+    </div>
   </body>
 </html>
