@@ -15,7 +15,7 @@ feature 'User login' do
     expect(page).to have_link('Sair')
     expect(page).to_not have_link('Entrar')
     expect(page).to_not have_link('Trabalhe conosco')
-    expect(page).to_not have_link('Cadastrar babás')
+    expect(page).to_not have_link('Cadastrar Babá')
   end
 
   scenario 'and logout' do
