@@ -5,5 +5,6 @@ FactoryBot.define do
     end_hour '2018-07-23 21:00:06'
     message 'MyText'
     au_pair
+    user
   end
 end

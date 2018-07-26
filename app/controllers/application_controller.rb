@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :user_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(*)
+    return if admin_signed_in?
     au_pairs_path
   end
 
