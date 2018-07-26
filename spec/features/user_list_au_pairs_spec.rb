@@ -108,6 +108,9 @@ feature 'User list aupairs' do
     visit root_path
     click_on 'Encontre Babás'
 
+    fill_in 'Buscar por', with: ''
+    click_on 'Buscar'
+
     expect(page).to_not have_content('Nanny Primeira')
     expect(page).to have_content('Nanny Segunda')
   end
@@ -124,5 +127,60 @@ feature 'User list aupairs' do
 
     expect(page).to have_content('Nanny Primeira')
     expect(page).to_not have_content('Nanny Segunda')
+  end
+
+  scenario 'and filter by skills' do
+    create(:au_pair, name: 'Nanny Primeira', skills: 'anti depressiva')
+    create(:au_pair, name: 'Nanny Segunda', skills: 'contadora de estórias')
+
+    visit root_path
+    click_on 'Encontre Babás'
+
+    fill_in 'Buscar por', with: 'estórias'
+    click_on 'Buscar'
+
+    expect(page).to_not have_content('Nanny Primeira')
+    expect(page).to have_content('Nanny Segunda')
+  end
+
+  scenario 'and filter by degree' do
+    create(:au_pair, name: 'Nanny Primeira', degree: 'formada em psicologia')
+    create(:au_pair, name: 'Nanny Segunda', degree: 'formada em pedagogia')
+
+    visit root_path
+    click_on 'Encontre Babás'
+
+    fill_in 'Buscar por', with: 'pedagogia'
+    click_on 'Buscar'
+
+    expect(page).to_not have_content('Nanny Primeira')
+    expect(page).to have_content('Nanny Segunda')
+  end
+
+  scenario 'and filter by city' do
+    create(:au_pair, name: 'Nanny Primeira', city: 'Rio de Janeiro')
+    create(:au_pair, name: 'Nanny Segunda', city: 'São Paulo')
+    visit root_path
+    click_on 'Encontre Babás'
+
+    fill_in 'Buscar por', with: 'são paulo'
+    click_on 'Buscar'
+
+    expect(page).to_not have_content('Nanny Primeira')
+    expect(page).to have_content('Nanny Segunda')
+  end
+
+  scenario 'and filter by languages' do
+    create(:au_pair, name: 'Nanny Primeira', languages: 'ingles e italiano')
+    create(:au_pair, name: 'Nanny Segunda', languages: 'espanhol')
+
+    visit root_path
+    click_on 'Encontre Babás'
+
+    fill_in 'Buscar por', with: 'espanhol'
+    click_on 'Buscar'
+
+    expect(page).to_not have_content('Nanny Primeira')
+    expect(page).to have_content('Nanny Segunda')
   end
 end

@@ -1,10 +1,6 @@
 class AuPairsController < ApplicationController
   def index
-    @aupairs = if search_query
-                 AuPair.only_approved.where('name LIKE ?', "%#{search_query}%")
-               else
-                 AuPair.only_approved
-               end
+    @aupairs = AuPairService.search(search_query)
   end
 
   def new
