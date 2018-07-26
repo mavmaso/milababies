@@ -38,6 +38,13 @@ feature 'Admin register AuPair' do
   end
 
   scenario 'and must fill in all fields' do
+    camila_admin = create(:admin)
+
+    visit new_admin_session_path
+    fill_in 'Email', with: camila_admin.email
+    fill_in 'Senha', with: camila_admin.password
+    click_on 'Logar'
+
     visit root_path
     click_on 'Cadastrar Babá'
 
@@ -55,6 +62,12 @@ feature 'Admin register AuPair' do
 
   scenario 'and cannot register with duplicate CPF' do
     create(:au_pair, cpf: '12345678900')
+    camila_admin = create(:admin)
+
+    visit new_admin_session_path
+    fill_in 'Email', with: camila_admin.email
+    fill_in 'Senha', with: camila_admin.password
+    click_on 'Logar'
 
     visit root_path
     click_on 'Cadastrar Babá'
