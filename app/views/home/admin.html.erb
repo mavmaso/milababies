@@ -1,0 +1,4 @@
+Dashboard do Admin
+<% @proposals.each do |p| %>
+  <%= link_to "Proposta ##{p.id}", au_pair_proposal_path(p.au_pair, p) %>
+<% end %>

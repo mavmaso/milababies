@@ -22,7 +22,7 @@ feature 'Send proposal' do
     expect(page).to have_content('Data: 01/01/2018')
     expect(page).to have_content('Hora de Início: 13:00')
     expect(page).to have_content('Hora de Término: 16:00')
-    expect(page).to have_content('Messagem: Apenas para testar o serviço')
+    expect(page).to have_content('Mensagem: Apenas para testar o serviço')
     expect(page).to have_content('Preço Final: R$ 120,00')
   end
   scenario 'fail' do
