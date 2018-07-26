@@ -14,11 +14,17 @@ feature 'Admin register AuPair' do
     fill_in 'Idiomas', with: 'Português Nativo, Alemão Avançado e Inglês Básico'
     fill_in 'Data de Nascimento', with: '01/01/1990'
     fill_in 'Cidade', with: 'São Paulo'
+    fill_in 'Valor/hora', with: '40'
+    attach_file 'Foto', Rails.root.join('spec', 'support', 'nophoto.jpg')
     click_on 'Enviar'
 
     au_pair = AuPair.last
     expect(page).to have_css('h1', text: 'Super Nanny')
+    expect(page).to have_css('li', text: 'nany@milababies.com')
+    expect(page).to have_css('li', text: '(11) 1234-5678')
     expect(page).to have_css('li', text: '01/01/1990')
+    expect(page).to have_css('li', text: 'R$ 40,00')
+    expect(page).to have_css('img[src*="nophoto.jpg"]')
     expect(current_path).to eq au_pair_path(au_pair.id)
   end
 
@@ -29,10 +35,13 @@ feature 'Admin register AuPair' do
     fill_in 'Nome', with: ''
     fill_in 'Email', with: ''
     fill_in 'Telefone', with: ''
+    fill_in 'Valor/hora', with: ''
     click_on 'Enviar'
 
     expect(page).to have_css('h1', text: 'Cadastrar Nova Babá')
     expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content('Valor/hora não pode ficar em branco')
+    expect(page).to have_content('Foto não pode ficar em branco')
   end
 
   scenario 'and cannot register with duplicate CPF' do
