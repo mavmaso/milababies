@@ -1,5 +1,6 @@
 class TestimonialsController < ApplicationController
-  before_action :find_au_pair, only: [:create]
+  before_action :authenticate_user!, only: %i[new]
+  before_action :find_au_pair, only: %i[create]
 
   def new
     @testimonial = Testimonial.new
@@ -19,6 +20,7 @@ class TestimonialsController < ApplicationController
 
   def testimonial_params
     params.require(:testimonial).permit(:title, :description, :rating)
+          .merge(user: current_user)
   end
 
   def find_au_pair

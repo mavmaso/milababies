@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      user: Usuário
+    attributes:
+      user:
+        main_responsible: Nome do responsável principal
+        second_responsible: Nome do responsável secundário
+        main_phone: Telefone principal
+        second_phone: Telefone secundário
+        email: Email
+        password: Senha
+

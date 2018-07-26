@@ -13,6 +13,7 @@ feature 'Login as Admin' do
     expect(page).to have_content('Admin: Camila')
     expect(page).to have_content('Sair')
   end
+
   scenario 'Log off' do
     # criar
     create(:admin, name: 'Camila', email: 'camila@mail.com', password: '123456')
@@ -26,6 +27,7 @@ feature 'Login as Admin' do
     expect(page).not_to have_content('Admin: Camila')
     expect(page).not_to have_content('Sair')
   end
+
   scenario 'Dont have account' do
     # navegar
     visit new_admin_session_path

@@ -3,9 +3,15 @@ require 'rails_helper'
 feature 'Send proposal' do
   scenario 'successfully' do
     # cria
+    florinda = create(:user)
     nanny1 = create(:au_pair, name: 'Nana', wage: 40)
     # navega
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: florinda.email
+    fill_in 'Senha', with: florinda.password
+    click_on 'Logar'
+
     click_on 'Encontre Babás'
     within "#aupair-#{nanny1.id}" do
       click_on 'Ver Mais'
@@ -26,13 +32,22 @@ feature 'Send proposal' do
     expect(page).to have_content('Hora de Término: 16:00')
     expect(page).to have_content('Mensagem: Apenas para testar o serviço')
     expect(page).to have_content('Preço Final: R$ 120,00')
+    proposal = Proposal.last
+    expect(proposal.user.email).to eq florinda.email
   end
 
-  scenario 'fail' do
+  scenario 'with blank fields' do
     # cria
+    florinda = create(:user)
     nanny1 = create(:au_pair, name: 'Nana', wage: 40)
+
     # navega
     visit root_path
+    click_on 'Entrar'
+    fill_in 'Email', with: florinda.email
+    fill_in 'Senha', with: florinda.password
+    click_on 'Logar'
+
     click_on 'Encontre Babás'
     within "#aupair-#{nanny1.id}" do
       click_on 'Ver Mais'
@@ -46,5 +61,21 @@ feature 'Send proposal' do
     # expectativa
     expect(page).to have_content('Proposta não pode ser enviada')
     expect(page).to have_content('Apenas para testar o serviço')
+  end
+
+  scenario 'unlogged' do
+    # cria
+    nanny1 = create(:au_pair, name: 'Nana', wage: 40)
+
+    # navega
+    visit root_path
+    click_on 'Encontre Babás'
+    within "#aupair-#{nanny1.id}" do
+      click_on 'Ver Mais'
+    end
+    click_on 'Fazer Contratação'
+
+    # expectativa
+    expect(current_path).to eq new_user_session_path
   end
 end
