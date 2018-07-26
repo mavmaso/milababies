@@ -10,6 +10,7 @@ FactoryBot.define do
     languages 'Portugues, Ingles'
     birth_date '1993-04-19'
     city 'Londrina'
+    wage 40
     rate 10
     photo File.new(Rails.root.join('spec', 'support', 'nophoto.jpg'))
   end
