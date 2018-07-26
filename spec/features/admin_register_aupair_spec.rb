@@ -2,9 +2,15 @@ require 'rails_helper'
 
 feature 'Admin register AuPair' do
   scenario 'successfully' do
+    camila_admin = create(:admin)
+
+    visit new_admin_session_path
+    fill_in 'Email', with: camila_admin.email
+    fill_in 'Senha', with: camila_admin.password
+    click_on 'Logar'
+
     visit root_path
     click_on 'Cadastrar Babá'
-
     fill_in 'Nome', with: 'Super Nanny'
     fill_in 'Email', with: 'nany@milababies.com'
     fill_in 'Telefone', with: '(11) 1234-5678'

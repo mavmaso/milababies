@@ -1,9 +1,9 @@
 class AuPairsController < ApplicationController
   def index
     @aupairs = if search_query
-                 AuPair.where('name LIKE ?', "%#{search_query}%")
+                 AuPair.only_approved.where('name LIKE ?', "%#{search_query}%")
                else
-                 AuPair.all
+                 AuPair.only_approved
                end
   end
 

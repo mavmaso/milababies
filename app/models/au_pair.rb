@@ -10,6 +10,8 @@ class AuPair < ApplicationRecord
 
   enum status: %i[pending approved]
 
+  scope :only_approved, -> { where(status: :approved) }
+
   def average_rating
     testimonials.average(:rating)&.round(2)
   end
