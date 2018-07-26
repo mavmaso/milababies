@@ -43,9 +43,9 @@ feature 'User login' do
     click_on 'Cadastrar-se'
 
     fill_in 'Email', with: florinda.email
-    fill_in 'Responsável principal', with: florinda.main_responsible
+    fill_in 'Nome do responsável principal', with: florinda.main_responsible
     fill_in 'Telefone principal', with: florinda.main_phone
-    fill_in 'Responsável secundário', with: florinda.second_responsible
+    fill_in 'Nome do responsável secundário', with: florinda.second_responsible
     fill_in 'Telefone secundário', with: florinda.second_phone
     fill_in 'Senha', with: florinda.password
     fill_in 'Confirme sua senha', with: florinda.password
@@ -69,9 +69,9 @@ feature 'User login' do
     click_on 'Cadastrar-se'
 
     fill_in 'Email', with: florinda.email
-    fill_in 'Responsável principal', with: florinda.main_responsible
+    fill_in 'Nome do responsável principal', with: florinda.main_responsible
     fill_in 'Telefone principal', with: florinda.main_phone
-    fill_in 'Responsável secundário', with: florinda.second_responsible
+    fill_in 'Nome do responsável secundário', with: florinda.second_responsible
     fill_in 'Telefone secundário', with: florinda.second_phone
     fill_in 'Senha', with: florinda.password
     fill_in 'Confirme sua senha', with: florinda.password
@@ -95,16 +95,16 @@ feature 'User login' do
     click_on 'Cadastrar-se'
 
     fill_in 'Email', with: florinda.email
-    fill_in 'Responsável principal', with: ''
+    fill_in 'Nome do responsável principal', with: ''
     fill_in 'Telefone principal', with: ''
-    fill_in 'Responsável secundário', with: ''
+    fill_in 'Nome do responsável secundário', with: ''
     fill_in 'Telefone secundário', with: ''
     fill_in 'Senha', with: florinda.password
     fill_in 'Confirme sua senha', with: florinda.password
 
     click_on 'Enviar'
 
-    texto_validacao = 'Responsável principal não pode ficar em branco'
+    texto_validacao = 'Nome do responsável principal não pode ficar em branco'
     expect(page).to have_content('Por favor, corrija os problemas abaixo')
     expect(page).to have_content(texto_validacao)
     expect(page).to have_content('Telefone principal não pode ficar em branco')
