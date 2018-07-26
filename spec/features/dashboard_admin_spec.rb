@@ -27,6 +27,16 @@ feature 'View Proposal' do
     expect(page).to have_content('Mensagem: Teste de proposta')
     expect(page).to have_content('Preço Final: R$ 80,00')
   end
-  scenario '' do
+  scenario 'View empty Dashboard' do
+    # criar
+    create(:admin, name: 'Camila', email: 'camila@mail.com', password: '123456')
+    # navegar
+    visit admin_path
+    fill_in 'Email', with: 'camila@mail.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Logar'
+    # expectativa
+    expect(page).to have_content('Dashboard do Admin')
+    expect(page).to have_content('Sem Propostas no momento')
   end
 end
