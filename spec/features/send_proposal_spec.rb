@@ -17,6 +17,7 @@ feature 'Send proposal' do
       click_on 'Ver Mais'
     end
     click_on 'Fazer Contratação'
+
     fill_in 'Data', with: '01/01/2018'
     fill_in 'Hora de Início', with: '13:00'
     fill_in 'Hora de Término', with: '16:00'

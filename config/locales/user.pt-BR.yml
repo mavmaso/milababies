@@ -4,8 +4,8 @@ pt-BR:
       user: Usuário
     attributes:
       user:
-        main_responsible: Responsável principal
-        second_responsible: Responsável secundário
+        main_responsible: Nome do responsável principal
+        second_responsible: Nome do responsável secundário
         main_phone: Telefone principal
         second_phone: Telefone secundário
         email: Email
