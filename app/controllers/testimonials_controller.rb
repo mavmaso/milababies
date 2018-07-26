@@ -1,5 +1,6 @@
 class TestimonialsController < ApplicationController
-  before_action :find_au_pair, only: [:create]
+  before_action :authenticate_user!, only: %i[new]
+  before_action :find_au_pair, only: %i[create]
 
   def new
     @testimonial = Testimonial.new

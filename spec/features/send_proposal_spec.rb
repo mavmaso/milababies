@@ -59,7 +59,7 @@ feature 'Send proposal' do
     expect(page).to have_content('Apenas para testar o serviço')
   end
 
-  scenario 'without login' do
+  scenario 'unlogged' do
     # cria
     nanny1 = create(:au_pair, name: 'Nana', wage: 40)
 
