@@ -5,5 +5,8 @@ class HomeController < ApplicationController
 
   def admin
     @proposals = Proposal.all
+    @au_pair = AuPair.all
   end
+
+  def who; end
 end

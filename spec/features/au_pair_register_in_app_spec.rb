@@ -21,14 +21,11 @@ feature 'Au pair register in app' do
     click_on 'Enviar'
 
     expect(page).to have_css('h1', text: au_pair.name)
-    expect(page).to have_css('li', text: au_pair.email)
-    expect(page).to have_css('li', text: au_pair.phone)
     expect(page).to have_css('li', text: au_pair.skills)
     expect(page).to have_css('li', text: au_pair.degree)
     expect(page).to have_css('li', text: au_pair.languages)
     expect(page).to have_css('li', text: I18n.l(au_pair.birth_date))
     expect(page).to have_css('label', text: "Cidade #{au_pair.city}")
-    expect(page).to have_css('h2', text: 'Status Pendente')
     expect(page).to_not have_link('Fazer Contratação')
     expect(page).to_not have_link('Criar depoimento')
   end

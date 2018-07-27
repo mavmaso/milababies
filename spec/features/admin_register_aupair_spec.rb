@@ -26,13 +26,10 @@ feature 'Admin register AuPair' do
 
     au_pair = AuPair.last
     expect(page).to have_css('h1', text: 'Super Nanny')
-    expect(page).to have_css('li', text: 'nany@milababies.com')
-    expect(page).to have_css('li', text: '(11) 1234-5678')
     expect(page).to have_css('li', text: '01/01/1990')
     expect(page).to have_css('li', text: 'R$ 40,00')
     expect(page).to have_css('img[src*="nophoto.jpg"]')
     expect(current_path).to eq au_pair_path(au_pair.id)
-    expect(page).to have_css('h2', text: 'Status Aprovado')
     expect(page).to have_link('Fazer Contratação')
     expect(page).to have_link('Criar depoimento')
   end
