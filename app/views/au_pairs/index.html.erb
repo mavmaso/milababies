@@ -37,7 +37,7 @@
         <li>Habilidades: <%= aupair.skills %></li>
         <li>Formação: <%= aupair.degree %></li>
         <li>Avaliação: <%= aupair.rate %></li>
-        <li>  Depoimentos: 0</li>
+        <li>Depoimentos: <%= aupair.testimonials.count %></li>
       </ul>
       <div id="aupair-<%= aupair.id%>">
        <%= button_to 'Ver Mais', au_pair_path(aupair), class: 'aupair-show', method: :get %>

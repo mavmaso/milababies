@@ -6,13 +6,8 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto lista">
         <li class="nav-item">
-          <a class="nav-link" href="#">Quem Somos</a>
+          <a class="nav-link" href="<%= who_path %>">Quem Somos</a>
         </li>
-        <% if not user_signed_in? %>
-          <li class="nav-item">
-            <a class="nav-link" href="<%= new_user_session_path %>">Entrar</a>
-          </li>
-        <% end %>
         <li class="nav-item">
           <a class="nav-link" href="<%= au_pairs_path %>">Encontre Babás</a>
         </li>
@@ -24,18 +19,21 @@
             <%= link_to "Admin: #{current_admin.name}", admin_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Sair', destroy_admin_session_path, method: :get, class: 'nav-link'  %>
+            <%= link_to 'Sair', destroy_admin_session_path, method: :delete, class: 'nav-link'  %>
           </li>
         <% elsif user_signed_in? %>
           <li class="nav-item">
-            Usuário: <%= current_user.email %>
-          </li>
+            <a class="nav-link" href="#">Usuário: <%= current_user.email %></a>
+          </li>          
           <li class="nav-item">
-            <%= link_to 'Sair', destroy_user_session_path, method: :get, class: 'nav-link' %>
+            <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-link' %>
           </li>
         <% else %>
           <li class="nav-item">
             <a class="nav-link" href="<%= new_au_pair_path %>">Trabalhe conosco</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= new_user_session_path %>">Entrar</a>
           </li>
         <% end %>
       </ul>

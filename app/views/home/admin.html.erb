@@ -1,7 +1,27 @@
-<h1>Dashboard do Admin</h1>
-<% if @proposals.empty? %>
-  Sem Propostas no momento
-<% end %>
-<% @proposals.each do |p| %>
-  <%= link_to "Proposta ##{p.id}", au_pair_proposal_path(p.au_pair, p) %>
-<% end %>
+<div class="container">
+  <h1>Dashboard do Admin</h1>
+  <% if @proposals.empty? %>
+    Sem Propostas no momento
+  <% end %>
+  <% @proposals.each do |p| %>
+  <ul>
+      <li>
+      <%= link_to "Proposta ##{p.id}", au_pair_proposal_path(p.au_pair, p) %>
+      </li>
+    </ul>
+  <% end %>
+</div>
+<div class="container">
+  <h2>Babás no sistema</h2>
+  <% if @au_pair.empty? %>
+    Sem Babás no momento
+  <% end %>
+  <% @au_pair.each do |p| %>
+    <ul>
+      <li>
+      <%= link_to "Nome #{p.name}", au_pair_path(p) %>
+      <%=  p.status %>
+      </li>
+    </ul>
+  <% end %>
+</div>

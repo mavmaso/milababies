@@ -7,7 +7,6 @@
       <label class="cidade"> <%= "#{AuPair.human_attribute_name(:city)} #{@au_pair.city}" %></label>
     </div>
     <div class="texto">
-      <h2>Status <%= AuPair.human_attribute_name "status.#{@au_pair.status}" %></h2>
       <ul>
         <li><%= "#{AuPair.human_attribute_name(:birth_date)} #{I18n.l(@au_pair.birth_date)}" %></li>
         <li><%= "#{AuPair.human_attribute_name(:skills)} #{@au_pair.skills}" %></li>
@@ -16,18 +15,21 @@
         <li><%= "#{AuPair.human_attribute_name(:wage)} #{number_to_currency(@au_pair.wage)}" %></li>
         <li class="rating" data-score=<%=@au_pair.average_rating%>>Avaliação: <%= @au_pair.average_rating %></li>
       </ul>
-      <div>Contatos</h5>
-      <ul>
-        <li><%= "#{AuPair.human_attribute_name(:phone)} #{@au_pair.phone}" %></li>
-        <li><%= "#{AuPair.human_attribute_name(:email)} #{@au_pair.email}" %></li>
-      </ul>
+      <% if admin_signed_in? %>
+        <h4>Status <%= AuPair.human_attribute_name "status.#{@au_pair.status}" %></h4>
+        <div>Contatos</h5>
+        <ul>
+          <li><%= "#{AuPair.human_attribute_name(:phone)} #{@au_pair.phone}" %></li>
+          <li><%= "#{AuPair.human_attribute_name(:email)} #{@au_pair.email}" %></li>
+        </ul>
+      <% end %>
       <% if @au_pair.approved? %>
         <%= link_to 'Criar depoimento', new_au_pair_testimonial_path(@au_pair) %>
         <%= link_to 'Fazer Contratação', new_au_pair_proposal_path(@au_pair) %>
       <% end %>
     </div>
 
-    <div>
+    <div class="container">
       <h5>Depoimentos (<%= @au_pair.testimonials.count %>)</h5>
       <% if @au_pair.testimonials.empty? %>
         <p>Nenhum depoimento</p>
