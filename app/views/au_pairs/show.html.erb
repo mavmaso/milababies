@@ -1,7 +1,6 @@
 <div class="container">
- <section class="baba-show">
-    <h1><%= @au_pair.name %></h1>
-    <div></div>
+  <section class="baba-show">
+    <h1 class="mb-5"><%= @au_pair.name %></h1>
     <div class="foto">
       <%= image_tag @au_pair.photo.url(:thumb) %>
       <label class="cidade"> <%= "#{AuPair.human_attribute_name(:city)} #{@au_pair.city}" %></label>
@@ -24,32 +23,34 @@
         </ul>
       <% end %>
       <% if @au_pair.approved? %>
-        <%= link_to 'Criar depoimento', new_au_pair_testimonial_path(@au_pair) %>
-        <%= link_to 'Fazer Contratação', new_au_pair_proposal_path(@au_pair) %>
+        <%= link_to 'Fazer Contratação', new_au_pair_proposal_path(@au_pair), class: 'btn btn-primary' %>
       <% end %>
-    </div>
+        </div>
 
-    <div class="container">
-      <h5>Depoimentos (<%= @au_pair.testimonials.count %>)</h5>
-      <% if @au_pair.testimonials.empty? %>
-        <p>Nenhum depoimento</p>
-      <% end %>
-      <% @au_pair.testimonials.each do |testimonial| %>
-        
-        <p><%= testimonial.title %></p>        
-      <% end %>
-    </div>
+        <div class="container">
+          <% if @au_pair.approved? %>
+            <%= link_to 'Criar depoimento', new_au_pair_testimonial_path(@au_pair), class: 'btn btn-primary mb-5' %>
+          <% end %>
+          <h5>Depoimentos (<%= @au_pair.testimonials.count %>)</h5>
+          <% if @au_pair.testimonials.empty? %>
+            <p>Nenhum depoimento</p>
+          <% end %>
+          <% @au_pair.testimonials.each do |testimonial| %>
+
+            <p><%= testimonial.title %></p>
+          <% end %>
+        </div>
   </section>
-  </div>
+    </div>
 
 
 
-  <script>
-  $('.rating').raty({
-    readOnly: true,
-    score: function(){
-      return $(this).attr('data-score');
-    },
-    path: '/assets/'
-  });
-</script>
+    <script>
+      $('.rating').raty({
+        readOnly: true,
+        score: function(){
+          return $(this).attr('data-score');
+        },
+        path: '/assets/'
+      });
+    </script>

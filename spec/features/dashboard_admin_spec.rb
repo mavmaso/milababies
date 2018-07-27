@@ -18,7 +18,7 @@ feature 'View Proposal' do
     click_on 'Proposta #1'
     # expectativa
     expect(page).to have_content('Proposta #1')
-    expect(page).to have_content("Contrada: #{nanny1.name}")
+    expect(page).to have_content("Contratada: #{nanny1.name}")
     expect(page).to have_content(nanny1.email)
     expect(page).to have_content(nanny1.phone)
     expect(page).to have_content('Data: 01/01/2018')

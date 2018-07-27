@@ -3,25 +3,40 @@
   <% if @proposals.empty? %>
     Sem Propostas no momento
   <% end %>
-  <% @proposals.each do |p| %>
-  <ul>
-      <li>
-      <%= link_to "Proposta ##{p.id}", au_pair_proposal_path(p.au_pair, p) %>
-      </li>
-    </ul>
-  <% end %>
-</div>
-<div class="container">
+  <table class="table mb-5">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Proposta</th>
+        <th scope="col">Contratada</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @proposals.each do |p| %>
+        <tr>
+          <td><%= link_to "Proposta ##{p.id}", au_pair_proposal_path(p.au_pair, p) %></td>
+          <td><%= p.au_pair.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   <h2>Babás no sistema</h2>
   <% if @au_pair.empty? %>
     Sem Babás no momento
   <% end %>
-  <% @au_pair.each do |p| %>
-    <ul>
-      <li>
-      <%= link_to "Nome #{p.name}", au_pair_path(p) %>
-      <%=  p.status %>
-      </li>
-    </ul>
-  <% end %>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @au_pair.each do |p| %>
+        <tr>
+          <td><%= link_to p.name, au_pair_path(p) %></td>
+          <td><%= p.status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

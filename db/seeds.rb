@@ -29,4 +29,5 @@ AuPair.create(name: 'Karol', email: 'karol@baba.com',
               birth_date: '6/07/1995', city: 'Londrina',
               wage: 40, photo: File.new(Rails.root.join('spec', 'support', 'nophoto.jpg')),
               status: :pending)
-Proposal.create(booked_date: '31/07/2018', start_hour: '13:00', end_hour: '16:00', message: 'Teste', au_pair: AuPair.last, user: User.last)``
+Proposal.create(booked_date: '31/07/2018', start_hour: '13:00', end_hour: '16:00', message: 'Teste', au_pair: AuPair.last, user: User.last)
+Proposal.create(booked_date: '01/08/2018', start_hour: '16:00', end_hour: '18:00', message: 'Teste', au_pair: AuPair.first, user: User.last)
