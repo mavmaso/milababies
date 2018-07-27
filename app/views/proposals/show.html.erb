@@ -1,14 +1,29 @@
-<h1>Proposta #<%= @proposal.id%></h1>
-<h2>Contrada: <%= @proposal.au_pair.name %></h2>
-<%if admin_signed_in?%>
-<h2><%= @proposal.au_pair.email%></h2>
-<h2><%= @proposal.au_pair.phone%></h2>
-<% end %>
-<h3>Descriçao: </h3>
-  <ul>
-    <li>Data: <%= I18n.l @proposal.booked_date %></li>
-    <li>Hora de Início: <%= I18n.l @proposal.start_hour, format: :mini %></li>
-    <li>Hora de Término: <%= l @proposal.end_hour, format: :mini %></li>
-    <li>Mensagem: <%= @proposal.message %></li>
-    <li>Preço Final: <%= number_to_currency @proposal.final_price %></li>
-  </ul>
+<div class="card">
+  <h2 class="card-header">
+    Proposta #<%= @proposal.id %>
+  </h2>
+  <div class="card-body">
+    <h3 class="card-title">
+      Contratada: <%= @proposal.au_pair.name %>
+    </h3>
+    <%if admin_signed_in?%>
+      <p class="card-text">
+      <strong>Email: <%= @proposal.au_pair.email%></strong>
+      </p>
+      <p class="card-text">
+      <strong>Telefone: <%= @proposal.au_pair.phone%></strong>
+      </p>
+    <% end %>
+  </div>
+  <div class="card-body">
+    <h3>Descriçao: </h3>
+    <ul>
+      <li>Data: <%= I18n.l @proposal.booked_date %></li>
+      <li>Hora de Início: <%= I18n.l @proposal.start_hour, format: :mini %></li>
+      <li>Hora de Término: <%= l @proposal.end_hour, format: :mini %></li>
+      <li>Mensagem: <%= @proposal.message %></li>
+      <li>Preço Final: <%= number_to_currency @proposal.final_price %></li>
+    </ul>
+  </div>
+</div>
+<br>

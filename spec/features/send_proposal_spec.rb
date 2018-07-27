@@ -26,7 +26,7 @@ feature 'Send proposal' do
 
     # expectativa
     expect(page).to have_content('Proposta enviada com sucesso')
-    expect(page).to have_content("Contrada: #{nanny1.name}")
+    expect(page).to have_content("Contratada: #{nanny1.name}")
     expect(page).to have_content('Data: 01/01/2018')
     expect(page).to have_content('Hora de Início: 13:00')
     expect(page).to have_content('Hora de Término: 16:00')

@@ -1,48 +1,48 @@
 <div class="container">
-<section class="pesquisa">
-<div>
-  <%= form_tag(au_pairs_path, method: "get") do %>
-    <div class="row find-box">
-      <div class="col-sm-2">
-        <%= label_tag :query, "Buscar por" %>
-      </div>
-      <div class="col-sm-6">
-        <%= text_field_tag :query, nil, placeholder: 'Busque por nome, cidades, habilidades, formação ou linguas', class: 'form-control' %>
-      </div>
-      <div class="col-sm-4">
-      <%= submit_tag "Buscar", class: 'btn btn-primary' %>
-      </div>
-    </div>
-  <% end %>
-</div>
-</section>
-
-
-
-<h3>Babás</h3>
-
-<% if @aupairs.empty? %>
-  <%= 'Nenhuma babá encontrada' %>
-<% end %>
-
-<% @aupairs.each do |aupair| %>
-  <section class="baba">
-    <h1><%= aupair.name %></h1>
-    <div class="foto">
-      <%= image_tag aupair.photo.url(:thumb) %>
-      <label class="cidade"> Cidade: <%= aupair.city %></label>
-    </div>
-    <div class="texto">
-      <ul>
-        <li>Habilidades: <%= aupair.skills %></li>
-        <li>Formação: <%= aupair.degree %></li>
-        <li>Avaliação: <%= aupair.rate %></li>
-        <li>Depoimentos: <%= aupair.testimonials.count %></li>
-      </ul>
-      <div id="aupair-<%= aupair.id%>">
-       <%= button_to 'Ver Mais', au_pair_path(aupair), class: 'aupair-show', method: :get %>
-      </div>
+  <section class="pesquisa">
+    <div>
+      <%= form_tag(au_pairs_path, method: "get") do %>
+        <div class="row find-box">
+          <div class="col-sm-2">
+            <%= label_tag :query, "Buscar por" %>
+          </div>
+          <div class="col-sm-6">
+            <%= text_field_tag :query, nil, placeholder: 'Busque por nome, cidades, habilidades, formação ou linguas', class: 'form-control' %>
+          </div>
+          <div class="col-sm-4">
+            <%= submit_tag "Buscar", class: 'btn btn-primary' %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </section>
-<% end %>
+
+  <h3>Babás</h3>
+
+  <% if @aupairs.empty? %>
+    <%= 'Nenhuma babá encontrada' %>
+  <% end %>
+
+  <% @aupairs.each do |aupair| %>
+  <div class="card mb-4">
+    <h3 class="card-header"><%= aupair.name %></h3>
+    <div class="card-body">
+      <div class="float-left w-50">
+        <%= image_tag aupair.photo.url(:thumb) %><br>
+        <p> Cidade: <%= aupair.city %></p>
+      </div>
+      <div class="float-right w-50">
+        <ul>
+          <li>Habilidades: <%= aupair.skills %></li>
+          <li>Formação: <%= aupair.degree %></li>
+          <li>Avaliação: <%= aupair.rate %></li>
+          <li>Depoimentos: <%= aupair.testimonials.count %></li>
+        </ul>
+        <div id="aupair-<%= aupair.id%>" class="ml-5">
+          <%= button_to 'Ver Mais', au_pair_path(aupair), class: 'btn btn-primary btn-lg w-50', method: :get %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
 </div>
