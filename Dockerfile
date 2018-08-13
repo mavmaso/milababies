@@ -17,7 +17,7 @@ RUN export LC_ALL="en_US.utf8"
 
 RUN mkdir -p /var/www/milababies
 
-WORKDIR /var/www/milababies
+
 ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
 RUN gem install bundler
@@ -25,3 +25,4 @@ RUN bundle install
 RUN gem install bundler-audit
 
 ADD . /var/www/milababies
+WORKDIR /var/www/milababies
