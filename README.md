@@ -16,6 +16,9 @@ Para facilitar a contratação do serviço, foi disponibilizado fazer a
 contratação/proposta via aplicação, a qual a gerência fica a cargo do administrador
 da aplicação, englobando a curadoria das novas babás.
 
+## URL do Deploy
+https://millababies.herokuapp.com/ 
+
 ## Setup do Projeto
 
 ### Pré requisitos
