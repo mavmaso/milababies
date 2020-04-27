@@ -2,17 +2,20 @@ version: '3'
 services:
   web:
     build: .
-    command: rails s -b 0.0.0.0
+    command: bash start.sh
+    container_name: web-milababies
     volumes:
       - .:/var/www/milababies
     ports:
-      - 80:3000
+      - 3000:3000
     links:
       - db
     env_file:
       - .env.docker
   db:
     image: postgres:10.3-alpine
+    container_name: db-milababies
+    hostname: db-milababies
     ports:
       - 0:5432
     env_file:

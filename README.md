@@ -33,6 +33,7 @@ https://millababies.herokuapp.com/
 #### Docker
  - `docker-compose build`
  - `docker-compose run --rm web bin/setup`
+ - `docker-compose run --rm web EDITOR=vim rails credentials:edit`
  - `docker-compose run --rm --service-ports web bash`
  - `bundle exec rspec`
 
